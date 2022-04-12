@@ -8,11 +8,9 @@
         function __construct($name,$maxPrice,$minPrice,$count){
 
             $this->name = $name;
-            $this->maxPrice = $maxPrice;
-            $this->minPrice = $minPrice;
             $this->count = $count;
             for ($i = 0; $i < $this->count; $i++){
-                $this->prices[] =  mt_rand($this->minPrice,$this->maxPrice);
+                $this->prices[] =  mt_rand($minPrice,$maxPrice);
             }
 
         }
