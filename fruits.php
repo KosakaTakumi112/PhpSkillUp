@@ -1,12 +1,12 @@
 <?php
 
-    class Sample{
+    class Fruit{
 
         private $name = "";
         private $maxPrice = "";
         private $minPrice = "";
         private $count = "";
-        private $data = [];
+        private $price_data = [];
 
         function __construct($name,$maxPrice,$minPrice,$count){
             
@@ -15,7 +15,7 @@
             $this->minPrice = $minPrice;
             $this->count = $count;
             for ($i = 0; $i < $this->count; $i++){
-                $this->data[] =  mt_rand($this->minPrice,$this->maxPrice);
+                $this->price_data[] =  mt_rand($this->minPrice,$this->maxPrice);
             }
         }
 
@@ -36,20 +36,20 @@
         }
         
         function reCreateData(){
-            $this->data = [];
+            $this->price_data = [];
             for ($i = 0; $i < $this->count; $i++){
-                $this->data[] =  mt_rand($this->minPrice,$this->maxPrice);
+                $this->price_data[] =  mt_rand($this->minPrice,$this->maxPrice);
             }
         }
 
         function getMinPrice(){    
-            return(min($this->data));
+            return(min($this->price_data));
         }
         function getMaxPrice(){
-            return(max($this->data));
+            return(max($this->price_data));
         }
         function getAveragePrice(){
-            return(round(array_sum($this->data)/$this->count));
+            return(round(array_sum($this->price_data)/$this->count));
         }
         
         function getStatistics(){
@@ -69,7 +69,10 @@
         
     }
 
-    $apple = new Sample("桃",300,200,15);
+    $apple = new Fruit("桃",300,200,15);
+    $apple->getStatistics();
+
+    $apple = new Fruit("りんご",400,300,10);
     $apple->getStatistics();
 
 ?>
