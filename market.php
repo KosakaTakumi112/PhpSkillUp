@@ -13,14 +13,6 @@
 
     }
 
-      function addProduct($product){
-        $this->products[] = $product;
-      }
-
-      function addProductList($product_list){
-        $this->products = array_merge($product_list);
-      }
-
       function getMinPrice(){
           return(min(array_column($this->products, "price")));
       }
