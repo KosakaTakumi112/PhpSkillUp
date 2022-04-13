@@ -1,10 +1,17 @@
 <?php
 
-    // require_once "fruits_copy.php";
+    require_once "fruits.php";
 
     class Market{
 
       public $products = [];
+
+      function __construct($name,$minPrice,$maxPrice,$count){
+        for ($i = 0; $i < $count; $i++){
+          $this->products[] =  new Fruit($name,$minPrice,$maxPrice);
+        };
+
+    }
 
       function addProduct($product){
         $this->products[] = $product;
