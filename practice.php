@@ -1,12 +1,26 @@
 <?php
 
-  require_once "fruits.php";
+  require_once "fruits_copy.php";
+  require_once "market.php";
 
-  $peach = new Fruit("桃",300,200,15);
-  $peach->printStatistics();
+  function getFruitMarket($name,$minPrice,$maxPrice,$count){
 
-  $apple = new Fruit("りんご",400,300,10);
-  $apple->printStatistics();
+    $market = new Market;
+    $prices = [];
 
+    for ($i = 0; $i < $count; $i++){
+      $prices[] =  new Fruit($name,$minPrice,$maxPrice);
+    };
+
+    $market->addProductList($prices);
+
+    return $market;
+  }
+
+  $peach_market = getFruitMarket("桃",200,300,15);
+  $peach_market->printStatistics();
+
+  $strawberry_market = getFruitMarket("いちご",400,500,15);
+  $strawberry_market->printStatistics();
 
 ?>
