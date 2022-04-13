@@ -1,6 +1,6 @@
 <?php
 
-  require_once "fruits_copy.php";
+  require_once "fruits.php";
   require_once "market.php";
 
   function getFruitMarket($name,$minPrice,$maxPrice,$count){
